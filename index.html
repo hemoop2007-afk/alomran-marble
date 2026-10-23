@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#153f38">
+<title>العمران للرخام والجرانيت</title>
+<style>
+:root{--green:#174e42;--gold:#c8a96a;--bg:#f4f5f6;--ink:#1e2933;--muted:#6c7782;--line:#dce2e5;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif}header{background:linear-gradient(135deg,#102d29,#1b6754);color:#fff;padding:25px 16px 20px;border-bottom:4px solid var(--gold)}.wrap{max-width:1150px;margin:auto;padding:0 14px}.brand{display:flex;align-items:center;gap:14px}.logo{width:58px;height:58px;border:2px solid var(--gold);border-radius:14px;display:grid;place-items:center;color:var(--gold);font-weight:bold;font-size:24px}.brand h1{margin:0;font-size:25px}.brand p{margin:7px 0 0;color:#e6e9e6;font-size:13px}.topnote{margin-top:18px;color:#f2e6ca;font-size:13px}.nav{display:flex;gap:8px;flex-wrap:wrap;padding:14px 0}.nav button{border:0;background:#e2e8e6;color:#24463d;border-radius:10px;padding:11px 14px;font:inherit;cursor:pointer}.nav button.active,.primary{background:var(--green)!important;color:white!important}.page{display:none}.page.active{display:block}.card{background:white;border:1px solid var(--line);border-radius:15px;padding:16px;margin-bottom:14px;box-shadow:0 3px 12px #0f27200a}h2{font-size:18px;margin:0 0 14px}h3{font-size:15px;margin:14px 0 10px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:11px}label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}input,select{width:100%;padding:10px;border:1px solid #cbd5d9;border-radius:9px;font:inherit;background:white;color:var(--ink);min-width:0}button{cursor:pointer;font:inherit}.btn{border:0;border-radius:9px;padding:10px 13px;background:var(--green);color:#fff}.secondary{background:#e9eef0;color:#253b39}.danger{background:#a33e3e;color:#fff}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:670px}th,td{padding:8px;border-bottom:1px solid var(--line);text-align:right}th{font-size:12px;color:var(--muted);background:#f8faf9}td input,td select{padding:8px;min-width:75px}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin-bottom:14px}.stat{background:#e9f2ee;padding:13px;border-radius:12px}.stat span{display:block;font-size:12px;color:#49685e}.stat strong{display:block;font-size:21px;margin-top:6px;color:var(--green);overflow-wrap:anywhere}.note{font-size:12px;line-height:1.8;color:var(--muted)}.bigtotal{font-size:26px;color:var(--green);font-weight:bold}.empty{text-align:center;padding:20px;color:var(--muted)}footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}.tag{display:inline-block;background:#f4ead7;color:#715a2f;border-radius:7px;padding:4px 7px;font-size:11px}
+@media(max-width:600px){.brand h1{font-size:20px}.nav button{flex:1;font-size:13px;padding:10px 6px}.card{padding:12px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap{padding:0 10px}}
+@media print{header,.nav,.no-print,footer{display:none!important}.page{display:none!important}#invoicePrint{display:block!important}.card{box-shadow:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="brand"><div class="logo">ع</div><div><h1>العمران للرخام والجرانيت</h1><p>AL OMRAN · MARBLE & GRANITE</p></div></div>
+<div class="topnote">حاسبة القياسات والأسعار وإدارة المخزون — واجهة عملية لمصنعك</div>
+</div></header>
+<main class="wrap">
+<nav class="nav no-print">
+<button class="active" data-page="calculator">الحسابات</button><button data-page="prices">أسعار الرخام</button><button data-page="services">أجور الخدمات</button><button data-page="stock">المخزون</button>
+</nav>
+<section id="calculator" class="page active">
+<div class="card">
+<h2>بيانات الطلب</h2><div class="grid">
+<div><label>اسم الزبون / المشروع</label><input id="customer" placeholder="مثال: منزل أحمد"></div>
+<div><label>نوع الرخام</label><select id="stone"></select></div>
+<div><label>السماكة</label><select id="thickness"><option>2 سم</option><option>3 سم</option><option>1.5 سم</option><option>حسب الطلب</option></select></div>
+<div><label>الحلية</label><select id="edgeChoice"><option value="yes">بحلية</option><option value="no">بدون حلية</option></select></div>
+<div><label>وحدة تسعير الرخام</label><select id="priceUnit"><option value="auto">حسب النوع المسجل</option><option value="m2">المتر المربع</option><option value="lm">المتر الطولي</option></select></div>
+</div><p class="note">أدخل الطول والعرض بالسنتيمتر. مثال: 120 × 60 سم. المتر المربع يُحسب من الطول × العرض، والمتر الطولي من الطول × عدد القطع.</p>
+</div>
+<div class="card">
+<h2>القياسات حسب الأقسام</h2>
+<div class="tablewrap"><table><thead><tr><th>القسم / الوصف</th><th>عدد القطع</th><th>الطول (سم)</th><th>العرض (سم)</th><th>المساحة م²</th><th>الطولي م</th><th></th></tr></thead><tbody id="measureBody"></tbody></table></div>
+<div class="actions no-print"><button type="button" class="btn" id="addMeasure">+ إضافة قياس</button><button type="button" class="btn secondary" id="clearMeasures">مسح القياسات</button></div>
+</div>
+<div class="card"><h2>الأجور والإضافات</h2><div class="grid">
+<div><label>أجرة الحلية (لكل متر طولي)</label><input id="edgeRate" type="number" min="0" step=".01" value="0"></div>
+<div><label>أجرة القص (لكل متر طولي)</label><input id="cutRate" type="number" min="0" step=".01" value="0"></div>
+<div><label>أجرة إضافية (لكل متر طولي)</label><input id="extraRate" type="number" min="0" step=".01" value="0"></div>
+<div><label>مصاريف أخرى</label><input id="otherCost" type="number" min="0" step=".01" value="0"></div>
+<div><label>خصم</label><input id="discount" type="number" min="0" step=".01" value="0"></div>
+</div><p class="note">سعر الحلية يُضاف فقط عند اختيار «بحلية». غيّر أجور الخدمات حسب تسعيرة مصنعك.</p></div>
+<div class="stats">
+<div class="stat"><span>إجمالي المساحة</span><strong id="sumArea">0.000 م²</strong></div>
+<div class="stat"><span>إجمالي المتر الطولي</span><strong id="sumLinear">0.000 م</strong></div>
+<div class="stat"><span>سعر الرخام</span><strong id="stoneCost">0.00 د.ل</strong></div>
+<div class="stat"><span>أجرة الحلية</span><strong id="edgeCost">0.00 د.ل</strong></div>
+<div class="stat"><span>أجرة القص والإضافات</span><strong id="serviceCost">0.00 د.ل</strong></div>
+<div class="stat"><span>الإجمالي النهائي</span><strong id="grandTotal">0.00 د.ل</strong></div>
+</div>
+<div class="card"><h2>ملخص الفاتورة</h2><div id="invoiceSummary" class="note">أضف القياسات لعرض ملخص الطلب.</div><div class="actions no-print"><button type="button" class="btn" id="printInvoice">طباعة / حفظ PDF</button><button type="button" class="btn secondary" id="saveOrder">حفظ الطلب على هذا الجهاز</button><button type="button" class="btn secondary" id="exportOrders">تصدير الطلبات CSV</button></div><p class="note">العملة الافتراضية دينار ليبي (د.ل). الأسعار الأولية صفر أو تقديرية؛ أدخل أسعار مصنعك قبل اعتماد أي فاتورة.</p></div>
+<div class="card"><h2>الطلبات المحفوظة</h2><div id="ordersList" class="note">لا توجد طلبات محفوظة.</div></div>
+</section>
+<section id="prices" class="page">
+<div class="card"><h2>قائمة أسعار الرخام والجرانيت</h2><p class="note">تُستخدم الأسعار المسجلة هنا تلقائيًا في الحاسبة. اختر وحدة السعر لكل نوع: متر مربع أو متر طولي.</p>
+<div class="tablewrap"><table><thead><tr><th>النوع</th><th>وحدة التسعير</th><th>السعر (د.ل)</th><th></th></tr></thead><tbody id="pricesBody"></tbody></table></div>
+<h3>إضافة نوع جديد</h3><div class="grid"><div><label>اسم النوع</label><input id="newStone" placeholder="مثال: جرانيت رمادي"></div><div><label>وحدة السعر</label><select id="newUnit"><option value="m2">متر مربع</option><option value="lm">متر طولي</option></select></div><div><label>السعر (د.ل)</label><input id="newPrice" type="number" min="0" step=".01" value="0"></div></div><div class="actions"><button type="button" class="btn" id="addStone">إضافة النوع</button></div></div>
+</section>
+<section id="services" class="page">
+<div class="card"><h2>إعداد أجور الخدمات الافتراضية</h2><p class="note">يمكن تعديل الأجور هنا لتظهر تلقائيًا عند فتح الحاسبة. تقدر أيضًا تغيّرها مباشرة داخل كل طلب.</p>
+<div class="grid"><div><label>الحلية / متر طولي (د.ل)</label><input id="defaultEdge" type="number" min="0" step=".01" value="0"></div><div><label>القص / متر طولي (د.ل)</label><input id="defaultCut" type="number" min="0" step=".01" value="0"></div><div><label>خدمة إضافية / متر طولي (د.ل)</label><input id="defaultExtra" type="number" min="0" step=".01" value="0"></div></div><div class="actions"><button type="button" class="btn" id="saveServices">حفظ أجور الخدمات</button></div></div>
+</section>
+<section id="stock" class="page">
+<div class="card"><h2>مخزون الرخام والجرانيت</h2><div class="grid"><div><label>اسم الصنف</label><input id="stockName" placeholder="كرارة أبيض"></div><div><label>اللون</label><input id="stockColor" placeholder="أبيض"></div><div><label>السماكة</label><select id="stockThickness"><option>2 سم</option><option>3 سم</option><option>1.5 سم</option><option>حسب الطلب</option></select></div><div><label>الكمية</label><input id="stockQty" type="number" min="0" step=".01" value="0"></div><div><label>وحدة الكمية</label><select id="stockUnit"><option>متر مربع</option><option>متر طولي</option><option>لوح</option><option>قطعة</option></select></div><div><label>سعر الوحدة (د.ل)</label><input id="stockPrice" type="number" min="0" step=".01" value="0"></div></div><div class="actions"><button type="button" class="btn" id="addStock">إضافة للمخزون</button></div></div>
+<div class="card"><h2>الأصناف المسجلة</h2><div class="tablewrap"><table><thead><tr><th>الصنف</th><th>اللون</th><th>السماكة</th><th>الكمية</th><th>الوحدة</th><th>سعر الوحدة</th><th>القيمة</th><th></th></tr></thead><tbody id="stockBody"></tbody></table></div><p class="note">المخزون المسجل هنا دفتر متابعة يدوي؛ لا يتم خصم الكميات تلقائيًا عند حفظ الطلب.</p></div>
+</section>
+</main>
+<footer>العمران للرخام والجرانيت · نسخة أولية تعمل محليًا على جهازك</footer>
+<script>
+const $=id=>document.getElementById(id);
+const fmt=n=>(Number(n)||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const defaultStones=[
+{name:'كرارة',unit:'m2',price:0},{name:'ترافنتينو',unit:'m2',price:0},{name:'إمبراطور',unit:'m2',price:0},{name:'رخام أسود',unit:'m2',price:0},{name:'جرانيت',unit:'m2',price:0}
+];
+function load(key,fallback){try{return JSON.parse(localStorage.getItem('alomran_'+key))??fallback}catch(e){return fallback}}
+function store(key,val){localStorage.setItem('alomran_'+key,JSON.stringify(val))}
+let stones=load('stones',defaultStones), stocks=load('stocks',[]), orders=load('orders',[]), measures=[];
+let settings=load('settings',{edge:0,cut:0,extra:0});
+function safe(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderStoneSelect(){let old=$('stone').value;$('stone').innerHTML=stones.map((s,i)=>`<option value="${i}">${safe(s.name)}</option>`).join('');if(old!==''&&stones[old])$('stone').value=old}
+function addMeasureRow(item={desc:'رواشن',qty:1,len:0,wid:0}){let id=Date.now()+Math.random();measures.push({id,...item});renderMeasures();calculate()}
+function renderMeasures(){ $('measureBody').innerHTML=measures.map(m=>`<tr data-id="${m.id}"><td><input data-k="desc" value="${safe(m.desc)}" placeholder="درج / مطبخ"></td><td><input data-k="qty" type="number" min="0" step="1" value="${m.qty}"></td><td><input data-k="len" type="number" min="0" step=".1" value="${m.len}"></td><td><input data-k="wid" type="number" min="0" step=".1" value="${m.wid}"></td><td class="area">0.000</td><td class="linear">0.000</td><td><button class="btn danger delete">حذف</button></td></tr>`).join('');}
+$('measureBody').addEventListener('input',e=>{let tr=e.target.closest('tr');if(!tr)return;let m=measures.find(x=>String(x.id)===tr.dataset.id);if(!m)return;let k=e.target.dataset.k;if(k)m[k]=k==='desc'?e.target.value:(Number(e.target.value)||0);calculate()});
+$('measureBody').addEventListener('click',e=>{if(!e.target.classList.contains('delete'))return;let tr=e.target.closest('tr');measures=measures.filter(m=>String(m.id)!==tr.dataset.id);renderMeasures();calculate()});
+function totals(){let area=0,linear=0;measures.forEach(m=>{let a=Math.max(0,m.qty)*Math.max(0,m.len)/100*Math.max(0,m.wid)/100;let l=Math.max(0,m.qty)*Math.max(0,m.len)/100;area+=a;linear+=l});return{area,linear}}
+function calculate(){let {area,linear}=totals();document.querySelectorAll('#measureBody tr').forEach(tr=>{let m=measures.find(x=>String(x.id)===tr.dataset.id);if(m){tr.querySelector('.area').textContent=(Math.max(0,m.qty)*Math.max(0,m.len)*Math.max(0,m.wid)/10000).toFixed(3);tr.querySelector('.linear').textContent=(Math.max(0,m.qty)*Math.max(0,m.len)/100).toFixed(3)}});let s=stones[Number($('stone').value)]||{price:0,unit:'m2'};let mode=$('priceUnit').value==='auto'?s.unit:$('priceUnit').value;let stoneCost=(mode==='lm'?linear:area)*(Number(s.price)||0);let edgeCost=$('edgeChoice').value==='yes'?linear*(Number($('edgeRate').value)||0):0;let cut=linear*(Number($('cutRate').value)||0),extra=linear*(Number($('extraRate').value)||0),other=Number($('otherCost').value)||0,discount=Number($('discount').value)||0;let service=cut+extra;let grand=Math.max(0,stoneCost+edgeCost+service+other-discount);
+$('sumArea').textContent=area.toFixed(3)+' م²';$('sumLinear').textContent=linear.toFixed(3)+' م';$('stoneCost').textContent=fmt(stoneCost)+' د.ل';$('edgeCost').textContent=fmt(edgeCost)+' د.ل';$('serviceCost').textContent=fmt(service)+' د.ل';$('grandTotal').textContent=fmt(grand)+' د.ل';
+$('invoiceSummary').innerHTML=`الزبون: <b>${safe($('customer').value||'—')}</b> · النوع: <b>${safe(s.name)}</b> · السماكة: <b>${safe($('thickness').value)}</b> · الحلية: <b>${$('edgeChoice').value==='yes'?'بحلية':'بدون حلية'}</b><hr>المساحة: ${area.toFixed(3)} م² — الطولي: ${linear.toFixed(3)} م<br>الرخام: ${fmt(stoneCost)} د.ل · الحلية: ${fmt(edgeCost)} د.ل · القص والإضافات: ${fmt(service)} د.ل · مصاريف: ${fmt(other)} د.ل · خصم: ${fmt(discount)} د.ل<br><span class="bigtotal">الإجمالي: ${fmt(grand)} د.ل</span><br><span class="note">الأسعار محسوبة حسب الأسعار والأجور التي أدخلتها.</span>`;
+return{area,linear,stoneCost,edgeCost,service,other,discount,grand,stone:s.name,unit:mode}}
+function renderPrices(){ $('pricesBody').innerHTML=stones.map((s,i)=>`<tr><td><input data-price-name="${i}" value="${safe(s.name)}"></td><td><select data-price-unit="${i}"><option value="m2" ${s.unit==='m2'?'selected':''}>متر مربع</option><option value="lm" ${s.unit==='lm'?'selected':''}>متر طولي</option></select></td><td><input data-price-value="${i}" type="number" min="0" step=".01" value="${Number(s.price)||0}"></td><td><button class="btn danger" data-delete-stone="${i}">حذف</button></td></tr>`).join('');renderStoneSelect();calculate()}
+$('pricesBody').addEventListener('change',e=>{let i=Number(e.target.dataset.priceName??e.target.dataset.priceUnit??e.target.dataset.priceValue);if(!Number.isInteger(i)||!stones[i])return;if(e.target.dataset.priceName!==undefined)stones[i].name=e.target.value;if(e.target.dataset.priceUnit!==undefined)stones[i].unit=e.target.value;if(e.target.dataset.priceValue!==undefined)stones[i].price=Math.max(0,Number(e.target.value)||0);store('stones',stones);renderStoneSelect();calculate()});
+$('pricesBody').addEventListener('click',e=>{let v=e.target.dataset.deleteStone;if(v===undefined)return;if(stones.length<2){alert('خلي نوع واحد على الأقل.');return}stones.splice(Number(v),1);store('stones',stones);renderPrices()});
+$('addStone').onclick=()=>{let name=$('newStone').value.trim();if(!name){alert('اكتب اسم النوع أولاً.');return}stones.push({name,unit:$('newUnit').value,price:Math.max(0,Number($('newPrice').value)||0)});store('stones',stones);$('newStone').value='';renderPrices()};
+function renderStock(){$('stockBody').innerHTML=stocks.map((s,i)=>`<tr><td>${safe(s.name)}</td><td>${safe(s.color)}</td><td>${safe(s.thickness)}</td><td>${fmt(s.qty)}</td><td>${safe(s.unit)}</td><td>${fmt(s.price)} د.ل</td><td>${fmt(s.qty*s.price)} د.ل</td><td><button class="btn danger" data-stock-del="${i}">حذف</button></td></tr>`).join('')||'<tr><td colspan="8" class="empty">المخزون فارغ — أضف أول صنف.</td></tr>'}
+$('stockBody').addEventListener('click',e=>{if(e.target.dataset.stockDel===undefined)return;stocks.splice(Number(e.target.dataset.stockDel),1);store('stocks',stocks);renderStock()});
+$('addStock').onclick=()=>{let name=$('stockName').value.trim();if(!name){alert('اكتب اسم الصنف.');return}stocks.push({name,color:$('stockColor').value,thickness:$('stockThickness').value,qty:Math.max(0,Number($('stockQty').value)||0),unit:$('stockUnit').value,price:Math.max(0,Number($('stockPrice').value)||0)});store('stocks',stocks);['stockName','stockColor'].forEach(id=>$(id).value='');$('stockQty').value=0;$('stockPrice').value=0;renderStock()};
+$('saveServices').onclick=()=>{settings={edge:Math.max(0,Number($('defaultEdge').value)||0),cut:Math.max(0,Number($('defaultCut').value)||0),extra:Math.max(0,Number($('defaultExtra').value)||0)};store('settings',settings);$('edgeRate').value=settings.edge;$('cutRate').value=settings.cut;$('extraRate').value=settings.extra;alert('تم حفظ أجور الخدمات على هذا الجهاز.')};
+$('addMeasure').onclick=function(e){
+ e.preventDefault();
+ try {
+   addMeasureRow({desc:'قسم جديد',qty:1,len:0,wid:0});
+   const body=document.getElementById('measureBody');
+   if(body && body.lastElementChild){body.lastElementChild.scrollIntoView({block:'nearest'});}
+ } catch(err) {
+   const body=document.getElementById('measureBody');
+   if(body){const tr=document.createElement('tr');tr.innerHTML='<td><input data-k="desc" value="قسم جديد"></td><td><input data-k="qty" type="number" value="1"></td><td><input data-k="len" type="number" value="0"></td><td><input data-k="wid" type="number" value="0"></td><td class="area">0.000</td><td class="linear">0.000</td><td><button type="button" class="btn danger delete">حذف</button></td>';body.appendChild(tr);}
+ }
+};$('clearMeasures').onclick=()=>{if(confirm('تمسح كل القياسات؟')){measures=[];renderMeasures();calculate()}};
+['customer','stone','thickness','edgeChoice','priceUnit','edgeRate','cutRate','extraRate','otherCost','discount'].forEach(id=>$(id).addEventListener('input',calculate));
+$('saveOrder').onclick=()=>{if(!measures.length){alert('أضف قياسًا واحدًا على الأقل.');return}let t=calculate();orders.unshift({date:new Date().toLocaleString('ar-LY'),customer:$('customer').value,stone:t.stone,area:t.area,linear:t.linear,total:t.grand,thickness:$('thickness').value,edge:$('edgeChoice').value,measures:measures.map(m=>({...m}))});store('orders',orders);renderOrders();alert('تم حفظ الطلب على هذا الجهاز.')};
+function renderOrders(){$('ordersList').innerHTML=orders.map((o,i)=>`<div style="padding:10px 0;border-bottom:1px solid #dce2e5"><b>${safe(o.customer||'بدون اسم')}</b> — ${safe(o.date)}<br>${safe(o.stone)} · ${Number(o.area).toFixed(3)} م² · ${Number(o.linear).toFixed(3)} م طولي · <b>${fmt(o.total)} د.ل</b> <button class="btn danger" data-order-del="${i}" style="padding:5px 8px;margin-right:8px">حذف</button></div>`).join('')||'لا توجد طلبات محفوظة.'}
+$('ordersList').addEventListener('click',e=>{if(e.target.dataset.orderDel===undefined)return;orders.splice(Number(e.target.dataset.orderDel),1);store('orders',orders);renderOrders()});
+$('exportOrders').onclick=()=>{if(!orders.length){alert('لا توجد طلبات لتصديرها.');return}let rows=[['التاريخ','الزبون','النوع','المساحة م2','المتر الطولي','الإجمالي د.ل'],...orders.map(o=>[o.date,o.customer,o.stone,o.area,o.linear,o.total])];let csv='\ufeff'+rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='alomran-orders.csv';a.click();URL.revokeObjectURL(a.href)};
+$('printInvoice').onclick=()=>window.print();
+document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===b.dataset.page))});
+$('defaultEdge').value=settings.edge;$('defaultCut').value=settings.cut;$('defaultExtra').value=settings.extra;$('edgeRate').value=settings.edge;$('cutRate').value=settings.cut;$('extraRate').value=settings.extra;
+renderStoneSelect();renderPrices();renderStock();renderOrders();addMeasureRow({desc:'رواشن',qty:1,len:0,wid:0});
+</script>
+</body></html>
